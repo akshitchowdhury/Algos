@@ -4,7 +4,7 @@ public class Missing_positve {
 
     public static void main(String[] args) {
 
-        int arr[] = {3,1,4,2};
+        int arr[] = {4,1,0,2};
 
         Missing_positve drive = new Missing_positve();
 
@@ -16,18 +16,16 @@ public class Missing_positve {
     }
 
 
-    public void cyclone(int[] arr){
+    public static int cyclone(int[] arr){
 
         int i = 0;
         while(i<arr.length){
 
-            int Cix = arr[i]-1;
+            int Cix = arr[i];
 
-            if(arr[i]!=arr[Cix]){
+            if(arr[i]<arr.length && arr[i]!=arr[Cix]){
 
                 swap(arr, i, Cix);
-
-
             }
             else{
                 i++;
@@ -35,17 +33,24 @@ public class Missing_positve {
 
 
         }
+        for(int j = 0; j<arr.length; j++){
 
+            if(arr[i]==i){
+                return i;
+            }
 
+        }
+        return arr.length;
     }
 
 
 
-    public void swap(int[] arr, int first, int second){
+    public static int swap(int[] arr, int first, int second){
 
         int temp = arr[first];
         arr[first] = arr[second];
         arr[second] = temp;
+        return temp;
     }
 
 }
